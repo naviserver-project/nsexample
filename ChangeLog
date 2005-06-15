@@ -1,3 +1,8 @@
+2005-06-15  Zoran Vasiljevic <vasiljevic@users.sf.net>
+
+	* Makefile:
+	* nsexample.c: changed license wording to Mozilla
+
 2005-06-14  Stephen Deasey  <sdeasey@users.sf.net>
 
 	* Initial import into NaviServer CVS.
