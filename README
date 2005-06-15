@@ -1,0 +1,80 @@
+
+nsexample: A simple example module for NaviServer
+--------------------------------------------------------------
+
+This module can be used as a template to create modules which add new
+commands to a NaviServer Tcl interpreter.
+
+
+
+Compiling and installing
+---------------------------
+
+First download, configure, compile and install NaviServer.  The default
+installation location is /usr/local/ns.
+
+Unpack the nsexample-$(VERSION).tgz module, compile and install.
+
+    $ tar xzf nsexample-$(VERSION).tgz
+    $ cd nsexample-$(VERSION)
+    $ make
+    $ make install
+
+
+
+Configuration
+----------------
+
+The nsexample module takes one configuration parameter.  It must be loaded in
+the context of a virtual server, but can be loaded multiple times.
+
+    ns_section "ns/server/server1/modules"
+    ns_param   example1    nsexample.so
+
+    ns_section "ns/server/server1/module/example1"
+    #ns_param  greeting    "Hello"  ;# The default
+
+
+    ns_section "ns/server/server2/modules"
+    ns_param   example2    nsexample.so
+    ns_param   example3    nsexample.so
+
+    ns_section "ns/server/server2/module/example3"
+    ns_param   greeting    "Howdy"
+
+
+
+Examples
+-----------
+
+Here are some examples of using the command via the control port:
+
+    server2:nscp 1> example_greet
+    wrong # args: should be "example_greet name"
+
+    server2:nscp 2> example_greet Cowboy
+    Howdy Cowboy! (server: server2 module: example3 loaded: 3)
+
+Note: the module was loaded twice into server2, 3 times on total. In this
+simple module a global counter is incremented for each instance of the module
+and the command of example3 overides the command of example2.  We are greeted
+with Howdy rather than Hello.
+
+
+
+More Information
+-------------------
+
+More information about writing modules can be found in the NaviServer Coding
+Standards:
+
+    http://naviserver.sourceforge.net/wiki/index.php/Code_Standards
+
+A complete list of modules can be found in CVS:
+
+    http://cvs.sourceforge.net/viewcvs.py/naviserver/modules/
+
+For help and advice, join the NaviServer developers mailing list:
+
+    http://lists.sourceforge.net/lists/listinfo/naviserver-devel
+
