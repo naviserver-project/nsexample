@@ -107,9 +107,7 @@ Ns_ModuleInit(char *server, char *module)
         cfg->greeting = "Hello";
     }
 
-    if (Ns_TclInitInterps(server, AddCmds, cfg) != NS_OK) {
-        return NS_ERROR;
-    }
+    Ns_TclRegisterTrace(server, AddCmds, cfg, NS_TCL_TRACE_CREATE);
     numLoaded++;
 
     return NS_OK;

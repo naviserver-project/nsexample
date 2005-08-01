@@ -1,3 +1,7 @@
+2005-08-01  Vlad Seryakov <vseryakov@users.sf.net>
+
+	* nsexample.c: removed old compat functions
+
 2005-06-15  Zoran Vasiljevic <vasiljevic@users.sf.net>
 
 	* Makefile:
