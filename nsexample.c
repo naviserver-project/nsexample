@@ -36,20 +36,17 @@
 
 #include "ns.h"
 
-NS_RCSID("$Header$");
-
-
 NS_EXPORT int Ns_ModuleVersion = 1;
-
+NS_EXPORT Ns_ModuleInitProc Ns_ModuleInit;
 
 /*
  * The following structure records configuration information for the module.
  */
 
 typedef struct Config {
-    char   *greeting;
-    char   *server;
-    char   *module;
+    const char   *greeting;
+    const char   *server;
+    const char   *module;
 } Config;
 
 /*
@@ -57,7 +54,7 @@ typedef struct Config {
  */
 
 static Tcl_ObjCmdProc GreetObjCmd;
-static int AddCmds(Tcl_Interp *interp, void *arg);
+static Ns_TclTraceProc AddCmds;
 
 /*
  * Static variables defined in this file.
@@ -87,10 +84,10 @@ static int numLoaded = 0;  /* Number of times module has been loaded. */
  */
 
 int
-Ns_ModuleInit(char *server, char *module)
+Ns_ModuleInit(const char *server, const char *module)
 {
-    Config *cfg;
-    char   *path;
+    Config     *cfg;
+    const char *path;
 
     if (server == NULL) {
         Ns_Log(Error, "nsexample: module requires a virtual server");
@@ -131,11 +128,11 @@ Ns_ModuleInit(char *server, char *module)
  */
 
 static int
-AddCmds(Tcl_Interp *interp, void *arg)
+AddCmds(Tcl_Interp *interp, const void *arg)
 {
-    Config *cfg = arg;
+    const Config *cfg = arg;
 
-    Tcl_CreateObjCommand(interp, "example_greet", GreetObjCmd, cfg, NULL);
+    Tcl_CreateObjCommand(interp, "example_greet", GreetObjCmd, (ClientData)cfg, NULL);
 
     return NS_OK;
 }
@@ -175,3 +172,12 @@ GreetObjCmd(ClientData arg, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[])
 
     return TCL_OK;
 }
+
+/*
+ * Local Variables:
+ * mode: c
+ * c-basic-offset: 4
+ * fill-column: 78
+ * indent-tabs-mode: nil
+ * End:
+ */
