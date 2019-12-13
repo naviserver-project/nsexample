@@ -57,7 +57,7 @@ Here are some examples of using the command via the control port:
 
 Note: the module was loaded twice into server2, 3 times on total. In this
 simple module a global counter is incremented for each instance of the module
-and the command of example3 overides the command of example2.  We are greeted
+and the command of example3 overrides the command of example2.  We are greeted
 with Howdy rather than Hello.
 
 
