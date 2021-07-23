@@ -83,7 +83,7 @@ static int numLoaded = 0;  /* Number of times module has been loaded. */
  *----------------------------------------------------------------------
  */
 
-int
+Ns_ReturnCode
 Ns_ModuleInit(const char *server, const char *module)
 {
     Config     *cfg;
@@ -127,7 +127,7 @@ Ns_ModuleInit(const char *server, const char *module)
  *----------------------------------------------------------------------
  */
 
-static int
+static Ns_ReturnCode
 AddCmds(Tcl_Interp *interp, const void *arg)
 {
     const Config *cfg = arg;
