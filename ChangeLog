@@ -1,12 +1,63 @@
-2005-08-01  Vlad Seryakov <vseryakov@users.sf.net>
+commit 20e3e232f02e7c9c326735e87ce7ec491bfb3b38
+Author: Gustaf Neumann <neumann@wu-wien.ac.at>
+Date:   2021-07-23
 
-	* nsexample.c: removed old compat functions
+    Modernize code
 
-2005-06-15  Zoran Vasiljevic <vasiljevic@users.sf.net>
+M	nsexample.c
 
-	* Makefile:
-	* nsexample.c: changed license wording to Mozilla
+commit 8f797bc0cc8d96b4b4af7d657957101f8c5d7afc
+Author: Gustaf Neumann <neumann@wu-wien.ac.at>
+Date:   2019-12-13
 
-2005-06-14  Stephen Deasey  <sdeasey@users.sf.net>
+    improve spelling
 
-	* Initial import into NaviServer CVS.
+M	README
+
+commit df75bf7ef3a1b83c9347bae918c1a1548dc82e43
+Author: Gustaf Neumann <neumann@wu-wien.ac.at>
+Date:   2016-11-12
+
+    - align with type definition in ns.h
+
+M	nsexample.c
+
+commit 4b1e55938b8b219485116a661c073d2bd639973e
+Author: Vlad Seryakov <vlad@crystalballinc.com>
+Date:   2007-05-23
+
+    Update makefiles to conditionally set NAVISERVER env variable
+
+M	Makefile
+
+commit e35dbd6e616617991d2b2a20164c4b4abcb2c478
+Author: Vlad Seryakov <vlad@crystalballinc.com>
+Date:   2005-08-01
+
+    Remove old compat functions
+
+M	ChangeLog
+M	nsexample.c
+
+commit 9fef1fc86859109abc61870c2c3ca0da21bf46da
+Author: Zoran Vasiljevic <zv@archiware.com>
+Date:   2005-06-15
+
+    Change license wording to Mozilla
+
+M	ChangeLog
+M	Makefile
+M	nsexample.c
+
+commit e499d290f481daff48f5a13880ea6507a01cde37
+Author: Stephen Deasey <sdeasey@gmail.com>
+Date:   2005-06-15
+
+    Initial revision
+
+A	AUTHORS
+A	ChangeLog
+A	LICENSE
+A	Makefile
+A	README
+A	nsexample.c
